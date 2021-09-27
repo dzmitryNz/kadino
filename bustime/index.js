@@ -34,7 +34,7 @@ const timeUpdate = () => {
 };
 
 const setShedule = () => {
-  let kirova, elArr, elNow, kadino, romanovichi, vokzal;
+  let kirova, elNow, kadino, romanovichi, vokzal;
   if(day < 6) {
     kirova = shedule.kirova;
     kadino = shedule.kadino;
