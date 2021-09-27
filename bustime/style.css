@@ -13,8 +13,8 @@
   --main-second-shadow-color: rgb(56, 56, 56);
 }
 
-main, header {
-  margin: 2rem;
+main, header, .weather {
+  margin: 1rem;
   max-width: 95vw;
 }
 
@@ -72,6 +72,15 @@ main, header {
       background-color: rgb(0, 85, 85);
       border-radius: 5px;
       padding: 0.5rem;
+    }
+
+    .bs-weather {
+      margin: 5px;
+    }
+
+    .weather-icon {
+      width: 20px;
+      height: 20px;
     }
 
     .shedulenow {
