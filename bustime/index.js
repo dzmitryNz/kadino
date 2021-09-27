@@ -20,10 +20,10 @@ const timeUpdate = () => {
 
   date = new Date();
   day = date.getDay();
-  // hours = date.getHours();
-  // mins = date.getMinutes();
-  hours = 12;
-  mins = 22;
+  hours = date.getHours();
+  mins = date.getMinutes();
+  
+  //  hours = 12; mins = 22;
 
   timeNowHours.innerText = addZero(hours);
   timeNowMins.innerText = addZero(mins);
@@ -32,15 +32,13 @@ const timeUpdate = () => {
 };
 
 const setShedule = () => {
-  let kirovaBus, kirovaMbus, kirova, elArr, elNow;
+  let kirova, elArr, elNow;
   if(day < 6) {
-    kirovaMbus = shedule.kirovaMbus;
-    kirovaBus = shedule.kirovaBus;
+    kirova = shedule.kirova;
   } else {
     if(day === 6) console.log(day);
     if(day === 7) console.log(day);
   };
-  kirova = kirovaBus.concat(kirovaMbus);
   console.log(kirova)
   kirova = kirova.sort()
     elNow = [];
