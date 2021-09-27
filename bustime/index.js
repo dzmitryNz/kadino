@@ -43,7 +43,7 @@ async function getTemperature () {
   const res = await req.json();
   if (res[0].blOut) temperatureKadino.innerText = res[0].blOut + "°С";
   
-  setTimeout(() => setShedule(), 300000);
+  setTimeout(() => setShedule(), 800000);
 };
 
 async function getWeather() {
@@ -64,7 +64,7 @@ async function getWeather() {
     weatherDescription.textContent = data.weather[0].description;
     wind.textContent = `ветер: ${Math.round(data.wind.speed)}м/с`;
 
-    setTimeout(getWeather, 6000000);
+    setTimeout(getWeather, 1000000);
 }
 
 
