@@ -11,8 +11,21 @@ const sheduleKadino = document.getElementById("sheduleKadino");
 const sheduleKirova = document.getElementById("sheduleKirova");
 const sheduleRomanovichi = document.getElementById("sheduleRomanovichi");
 const sheduleVokzal = document.getElementById("sheduleVokzal");
+const collapseKirova = document.getElementById("collapseKirova");
+const collapseKadino = document.getElementById("collapseKadino");
+const collapseVokzal = document.getElementById("collapseVokzal");
+const collapseRomanovichi = document.getElementById("collapseRomanovichi");
+const urlParams = new URLSearchParams(window.location.search);
 
-console.log(shedule)
+const from = urlParams.get("from").toLowerCase();
+
+console.log("from:", from);
+if (from && from !== "kirova") { 
+  collapseKirova.classList.remove("show");
+  if (from === "kadino") collapseKadino.classList.add("show");
+  if (from === "vokzal") collapseVokzal.classList.add("show");
+  if (from === "romanovichi") collapseRomanovichi.classList.add("show");
+} 
 
 let date, hours, mins, day;
 
@@ -54,13 +67,9 @@ const setShedule = () => {
       vokzal = shedule.vokzal7;
     }
   };
-  console.log(kirova)
-  kirova = kirova.sort()
-  kadino = kadino.sort()
-  romanovichi = romanovichi.sort()
-  vokzal = vokzal.sort()
 
-  elNow = [];
+  elNow = []; sheduleKirova.innerText = ""; timeNextKirova.innerText = "";
+  
   kirova.forEach(el => {
     const arrEl = el.split(":"); 
     const newEl = document.createElement("span");
@@ -81,7 +90,8 @@ const setShedule = () => {
     sheduleKirova.appendChild(newEl);
   });
 
-  elNow = [];
+  elNow = []; sheduleKadino.innerText = ""; timeNextKadino.innerText = "";
+  
   kadino.map(el => {
     const arrEl = el.split(":"); 
     const newEl = document.createElement("span");
@@ -102,7 +112,8 @@ const setShedule = () => {
     sheduleKadino.appendChild(newEl);
   });
 
-  elNow = [];
+  elNow = []; sheduleRomanovichi.innerText = ""; timeNextRomanovichi.innerText = "";
+
   romanovichi.map(el => {
     const arrEl = el.split(":"); 
     const newEl = document.createElement("span");
@@ -124,6 +135,8 @@ const setShedule = () => {
   });
 
   elNow = [];
+  sheduleVokzal.innerText = "";
+  timeNextVokzal.innerText = "";
   vokzal.map(el => {
     const arrEl = el.split(":"); 
     const newEl = document.createElement("span");
@@ -143,6 +156,8 @@ const setShedule = () => {
     newEl.innerText = el;
     sheduleVokzal.appendChild(newEl);
   });
+
+  setTimeout(() => setShedule(), 30000);
 };
 
 timeUpdate();
