@@ -17,14 +17,14 @@ const collapseVokzal = document.getElementById("collapseVokzal");
 const collapseRomanovichi = document.getElementById("collapseRomanovichi");
 const urlParams = new URLSearchParams(window.location.search);
 
-const from = urlParams.get("from").toLowerCase();
+const from = urlParams.get("from");
 
-console.log("from:", from);
-if (from && from !== "kirova") { 
+// console.log("from:", from);
+if (from && from.toLowerCase() !== "kirova") { 
   collapseKirova.classList.remove("show");
-  if (from === "kadino") collapseKadino.classList.add("show");
-  if (from === "vokzal") collapseVokzal.classList.add("show");
-  if (from === "romanovichi") collapseRomanovichi.classList.add("show");
+  if (from.toLowerCase().match("kadino" || "%D0%BA%D0%B0%D0%B4%D0%B8%D0%BD%D0%BE")) collapseKadino.classList.add("show");
+  if (from.toLowerCase().match("vokzal" || "вокзал")) collapseVokzal.classList.add("show");
+  if (from.toLowerCase().match("romanovichi" || "романовичи")) collapseRomanovichi.classList.add("show");
 } 
 
 let date, hours, mins, day;
