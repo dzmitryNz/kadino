@@ -13,9 +13,66 @@
   --main-second-shadow-color: rgb(56, 56, 56);
 }
 
-main, header, .weather {
+main, header, .weather, footer {
   margin: 1rem;
   max-width: 95vw;
+}
+
+.header-time {
+  font-size: 1.4rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.accordion, .accordion-body, .accordion-button, .accordion-button:not(.collapsed){
+  max-width: 95vw;
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  outline: 0;
+}
+
+.shedule {
+  margin: auto 0.3rem;
+  font-size: 2rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.shedulenow {
+  margin: 0.3rem;
+  font-size: 3rem;
+}
+
+.shedulelong {
+  margin: auto 0.3rem;
+  font-size: 1.4rem;
+}
+
+.oldshedule {
+  font-size: 1rem;
+  max-height: 2.5rem;
+}
+
+.bs-weather {
+  margin: 5px;
+  padding: 5px;
+  border: solid 1px grey;
+  border-radius: 10px;
+  background-color: indigo;
+}
+
+.weather-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.accordion-body{
+  display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
 @media (prefers-color-scheme: light) {
@@ -36,23 +93,12 @@ main, header, .weather {
     }
 
     .header-time {
-      font-size: 1.4rem;
       background-color: rgb(0, 35, 35);
-      border-radius: 5px;
-      padding: 0.5rem;
-      margin: 0.5rem;
     }
 
     .accordion, .accordion-body, .accordion-button, .accordion-button:not(.collapsed){
       background: var(--main-bg-color);
       color: var(--main-color);
-      max-width: 95vw;
-    }
-
-    .accordion-body{
-      display: flex;
-      max-width: 100%;
-      flex-wrap: wrap;
     }
 
     .accordion-button, .accordion-button:not(.collapsed){
@@ -60,44 +106,20 @@ main, header, .weather {
     }
 
     .accordion-button:focus {
-      z-index: 3;
       border-color: darkgray;
-      outline: 0;
       box-shadow: 0 0 0 0.25rem rgb(190 190 190 / 25%);
     }
 
     .shedule {
-      margin: auto 0.3rem;
-      font-size: 2rem;
       background-color: rgb(0, 85, 85);
-      border-radius: 5px;
-      padding: 0.5rem;
-    }
-
-    .bs-weather {
-      margin: 5px;
-    }
-
-    .weather-icon {
-      width: 20px;
-      height: 20px;
-    }
-
-    .shedulenow {
-      margin: 0.3rem;
-      font-size: 3rem;
     }
     
     .shedulelong {
-      margin: auto 0.3rem;
-      font-size: 1.4rem;
       background-color: rgb(0, 35, 35);
     }
 
     .oldshedule {
-      font-size: 1rem;
       background-color: rgb(61, 35, 39);
       color: darkslategray;
-      max-height: 2.5rem;
     }
 }

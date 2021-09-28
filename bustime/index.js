@@ -18,8 +18,8 @@ const urlParams = new URLSearchParams(window.location.search);
 const from = urlParams.get("from");
 
 // console.log("from:", from);
-if (from && from.toLowerCase() !== "kirova") { 
-  collapseKirova.classList.remove("show");
+if (from) {
+  if (from.toLowerCase().match("kirova" || "кирова")) collapseKirova.classList.add("show");
   if (from.toLowerCase().match("kadino" || "кадино")) collapseKadino.classList.add("show");
   if (from.toLowerCase().match("vokzal" || "вокзал")) collapseVokzal.classList.add("show");
   if (from.toLowerCase().match("romanovichi" || "романовичи")) collapseRomanovichi.classList.add("show");
@@ -34,13 +34,13 @@ async function getTemperature () {
   const res = await req.json();
   if (res[0].blOut) temperatureKadino.innerText = res[0].blOut + "°С";
   
-  setTimeout(() => setShedule(), 800000);
+  setTimeout(() => getTemperature(), 800000);
 };
 
 async function getWeather() {
     const res = await fetch(weatherUrl);
     const data = await res.json();
-    if (data.code !== 200) {
+    if (data.cod !== 200) {
         weatherIcon.textContent = "";
         temperatureMogilev.textContent = "";
         weatherDescription.textContent = "";
@@ -74,6 +74,6 @@ const timeUpdate = () => {
 };
 
 timeUpdate();
-setShedules(day, hours, mins);
+setShedules();
 getTemperature();
 getWeather();

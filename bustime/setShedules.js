@@ -9,8 +9,13 @@ const sheduleKirova = document.getElementById("sheduleKirova");
 const sheduleRomanovichi = document.getElementById("sheduleRomanovichi");
 const sheduleVokzal = document.getElementById("sheduleVokzal");
 
-export default function setShedules(day, hours, mins) {
-  let kirova, elNow, kadino, romanovichi, vokzal;
+export default function setShedules() {
+  const date = new Date();
+  const day = date.getDay();
+  const hours = date.getHours();
+  const mins = date.getMinutes();
+
+  let kirova, elNow, elBack, kadino, romanovichi, vokzal;
   if(day < 6) {
     kirova = shedule.kirova;
     kadino = shedule.kadino;
@@ -33,7 +38,7 @@ export default function setShedules(day, hours, mins) {
 
   function sheduling(sheduleArr, nextEl, sheduleEl) {
     sheduleEl.innerText = ""; nextEl.innerText = "";
-    elNow = [];
+    elNow = []; elBack = [];
     sheduleArr.forEach(el => {
       const arrEl = el.split(":"); 
       const newEl = document.createElement("span");
@@ -44,22 +49,26 @@ export default function setShedules(day, hours, mins) {
           newEl.classList.add("shedulenow");
           elNow.push(el);
         }
-        if((Number(arrEl[0]) - hours) > 1) newEl.classList.add("shedulelong");
+        if((Number(arrEl[0]) - hours) === 1) elNow.push(el);
+        if((Number(arrEl[0]) - hours) > 1) {
+          newEl.classList.add("shedulelong");
+          elBack.push(el);
+        };
       } else {
         newEl.classList.add("shedule")
         newEl.classList.add("oldshedule")
       }
-      nextEl.innerText = elNow.join(",  ");
+      nextEl.innerText = elNow.join(", ");
       newEl.innerText = el;
       sheduleEl.appendChild(newEl);
     });
+    if(elBack && elNow.length < 1) nextEl.innerText = elBack.join(", ");
   }
-
   
-  sheduling(kirova, timeNextKirova, sheduleKirova)
-  sheduling(kadino, timeNextKadino, sheduleKadino)
-  sheduling(romanovichi, timeNextRomanovichi, sheduleRomanovichi)
-  sheduling(vokzal, timeNextVokzal, sheduleVokzal)
+  sheduling(kirova, timeNextKirova, sheduleKirova);
+  sheduling(kadino, timeNextKadino, sheduleKadino);
+  sheduling(romanovichi, timeNextRomanovichi, sheduleRomanovichi);
+  sheduling(vokzal, timeNextVokzal, sheduleVokzal);
   
-  setTimeout(() => setShedule(), 30000);
+  setTimeout(() => setShedules(), 30000);
 };
