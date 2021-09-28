@@ -1,6 +1,6 @@
 import setShedules from "./setShedules.js";
 
-const teperatureUrl = "https://rbstr.tk:3000/home";
+const teperatureUrl = "https://rbstr.tk:3000/home/";
 const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=Mogilev&lang=ru&appid=351bef36095247499eb96265dfb607d2&units=metric";
 const temperatureKadino = document.getElementById("temperatureKadino");
 const temperatureMogilev = document.getElementById("temperatureMogilev");
@@ -51,7 +51,7 @@ async function getWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperatureMogilev.textContent = `${Math.round(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
-    wind.textContent = `ветер: ${Math.round(data.wind.speed)}м/с`;
+    wind.textContent = `- ветер: ${Math.round(data.wind.speed)}м/с`;
 
     setTimeout(getWeather, 1000000);
 }
