@@ -62,9 +62,11 @@ main, header, .weather, footer {
   border: solid 1px grey;
   border-radius: 10px;
   background-color: indigo;
+  text-align: center;
 }
 
 .weather-icon {
+  
   width: 20px;
   height: 20px;
 }

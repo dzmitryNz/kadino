@@ -1,7 +1,7 @@
 import setShedules from "./setShedules.js";
 
 const teperatureUrl = "https://rbstr.tk:3000/home/";
-const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=Mogilev&lang=ru&appid=351bef36095247499eb96265dfb607d2&units=metric";
+const weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=Mogilev&lang=ru&appid=YourApiKey&units=metric";
 const temperatureKadino = document.getElementById("temperatureKadino");
 const temperatureMogilev = document.getElementById("temperatureMogilev");
 const weatherIcon = document.getElementById("weatherIcon");
