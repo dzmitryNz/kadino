@@ -14,7 +14,6 @@ export default function setShedules() {
   const day = date.getDay();
   const hours = date.getHours();
   const mins = date.getMinutes();
-
   let kirova, elNow, elBack, kadino, romanovichi, vokzal;
   if(day < 6) {
     kirova = shedule.kirova;
@@ -41,6 +40,11 @@ export default function setShedules() {
     elNow = []; elBack = [];
     sheduleArr.forEach(el => {
       const arrEl = el.split(":"); 
+      // const newDate = new Date();
+      // newDate.setHours(Number(arrEl[0]), Number(arrEl[1]), 0);
+      // const deltaMinutes = (newDate - date) / 60000;
+      // console.log(el, newDate, deltaMinutes );
+
       const newEl = document.createElement("span");
       if(Number(arrEl[0]) >= hours) {
         newEl.classList.add("shedule");
