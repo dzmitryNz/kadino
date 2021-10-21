@@ -1,0 +1,49 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>Kadino thermometr</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+  <h1 class="hidden">Kadino thermometr</h1>
+ </header>
+<main>
+  <p>
+    <span class="description">Последние данные</span>
+    <span class="data-container" id="dateTime">чт, 21 окт. 21 г., 22:00</span>
+    <span class="description">Данные для сравнения</span>
+    <span class="data-container" id="prevdDateTime">чт, 21 окт. 21 г., 21:20</span>
+  </p>
+  <div class="data">
+    <div class="block">
+      <p class="description">Давление атм.</p>
+      <span class="data-container" id="bkP"></span>
+      <span class="description">мм.рт.ст.</span>
+    </div>
+    <div class="block">
+      <p class="description">Улица</p>
+      <span class="data-container" id="blkOut"><span class="temp cold">14.1</span><span class="dir-up">↘</span></span>
+      <span class="description">°С</span>
+    </div>
+    <div class="block">
+      <p class="description">БК</p>
+      <span class="data-container" id="bkIn"></span>
+      <span class="description">°С</span>
+    </div>
+    <div class="block">
+      <p class="description">Балкон</p>
+      <span class="data-container" id="blkIn"><span class="temp normal">24.3</span><span class="dir-up">↗</span></span>
+      <span class="description">°С</span>
+    </div>
+  </div>
+  <div class="chart">
+    <canvas id="myChart" style="position: relative; height: 520px; width: 845px; display: block; box-sizing: border-box;" width="845" height="520"></canvas>
+    <canvas id="pChart" style="position: relative; height: 520px; width: 845px; display: block; box-sizing: border-box;" width="845" height="520"></canvas>
+  </div>
+</main>
+  <script src="./js/index.js" type="module"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
+
+</body>
+</html>

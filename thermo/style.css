@@ -1,0 +1,142 @@
+ * {
+outline: 0;
+margin: 0;
+}
+
+body {
+  background: #5c5c5c;
+  color: #a5a5a5;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header, main, footer {
+  max-width: 95vw;
+  margin: 0 auto;
+}
+
+header h1, h2 {
+  display: inline;
+}
+
+header a {
+  text-decoration: none;
+  color: #aaa;
+}
+
+header a:hover {
+  text-decoration: none;
+  color: yellowgreen;
+}
+
+header a:active {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+main .data {
+  display: flex;
+  place-content: space-between;
+  margin: 1rem;
+  text-align: center;
+}
+
+main .description {
+  color: aliceblue;
+}
+
+main .pressure, 
+main .temp {
+  font-size: 1.5rem;
+  color: bisque;
+}
+
+.chart {
+  background-color: snow;
+  max-width: 95vw;
+  margin: 0 auto;
+}
+
+.calc-wrapper {
+  width: 370px;
+  margin: 20px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background: silver;
+}
+
+.info {
+  width: 370px;
+  margin: 10px auto;
+  overflow: hidden;
+  text-align: left;
+  font-size: 14px;
+  color: #5c5c5c;
+}
+
+.info p {
+  margin: 0;
+}
+
+.display {
+  border-radius: 0 0;
+  height: 100px;
+  background: #023;
+}
+
+.previous-operand {
+  padding: 10px 20px 0 0;
+  height: 30px;
+  text-align: right;
+  font-size: 26pt;
+  color: #aaa;  
+}
+
+.current-operand {
+  height: 70px;
+  padding: 0 20px;
+  text-align: right;
+  font-size: 40pt;
+  color: #5c0;  
+}
+
+.btn {
+  cursor: pointer;
+  border-radius: 5px;
+  float: left;
+  width: 60px;
+  height: 60px;
+  line-height: 40px;
+  font-size: 30px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.btn-group-left {
+  margin-top: 10px;
+  float: left;
+  width: 270px;
+}
+
+.btn-group-left .btn {
+  margin-left: 20px;
+}
+
+.btn-group-right {
+  margin-top: 10px;
+  float: left;
+  width: 60px;
+}
+
+.btn.result {
+  background-color: rgb(1, 219, 110);
+}
+
+
+.btn.clear {
+  background-color: rgb(228, 81, 81);
+}
+
+.btn.operation {
+  background-color: rgb(187, 196, 236);
+}
