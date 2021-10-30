@@ -66,7 +66,6 @@ main, header, .weather, footer {
 }
 
 .weather-icon {
-  
   width: 20px;
   height: 20px;
 }
@@ -77,14 +76,48 @@ main, header, .weather, footer {
   flex-wrap: wrap;
 }
 
+.accordion-button:focus {
+  border-color: darkgray;
+  box-shadow: 0 0 0 0.25rem rgb(190 190 190 / 25%);
+}
+
 @media (prefers-color-scheme: light) {
     body {
       background: var(--main-second-bg-color);
       color: var(--main-second-color);
     }
-    .accordion {
+
+    .header-time {
+      background-color: darkgray;
+    }
+
+    .accordion, .accordion-body, .accordion-button, .accordion-button:not(.collapsed){
       background: var(--main-second-bg-color);
       color: var(--main-second-color);
+    }
+
+    .accordion-button, .accordion-button:not(.collapsed){
+      background: var(--main-shadow-color);
+    }
+    
+    .accordion-button:focus {
+      border-color: darkgray;
+      box-shadow: 0 0 0 0.25rem rgb(190 190 190 / 25%);
+    }
+
+    .shedule {
+      background-color: rgb(0, 85, 85);
+      color: var(--main-color);
+    }
+    
+    .shedulelong {
+      background-color: rgb(0, 55, 55);
+      color: var(--main-color);
+    }
+
+    .oldshedule {
+      background-color: rgb(61, 35, 39);
+      color: darkslategray;
     }
 }
 
@@ -93,7 +126,7 @@ main, header, .weather, footer {
       background: var(--main-bg-color);
       color: var(--main-color);
     }
-
+    
     .header-time {
       background-color: rgb(0, 35, 35);
     }
@@ -105,11 +138,6 @@ main, header, .weather, footer {
 
     .accordion-button, .accordion-button:not(.collapsed){
       background: var(--main-second-shadow-color);
-    }
-
-    .accordion-button:focus {
-      border-color: darkgray;
-      box-shadow: 0 0 0 0.25rem rgb(190 190 190 / 25%);
     }
 
     .shedule {
