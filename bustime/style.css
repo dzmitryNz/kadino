@@ -91,6 +91,10 @@ main, header, .weather, footer {
       background-color: darkgray;
     }
 
+    .bs-weather {
+      color: var(--main-color);
+    }
+
     .accordion, .accordion-body, .accordion-button, .accordion-button:not(.collapsed){
       background: var(--main-second-bg-color);
       color: var(--main-second-color);
