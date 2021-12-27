@@ -1,4 +1,5 @@
-import setShedules from "./setShedules.js";
+import setShedules from "./setShedules.min.js";
+// import setShedules from "./setShedules.js";
 import { OWM_API_KEY } from "./env.js"; // OpenWeatherMap ApiKey store in env.js file
 
 const teperatureUrl = "https://rbstr.tk:3000/home/";
@@ -16,7 +17,18 @@ const collapseKadino = document.getElementById("collapseKadino");
 const collapseVokzal = document.getElementById("collapseVokzal");
 const collapseRomanovichi = document.getElementById("collapseRomanovichi");
 const urlParams = new URLSearchParams(window.location.search);
+const tomorow = document.querySelector('.tomorow');
+const dropdownMenu = document.querySelector('.dropdown-menu');
+const dropdownButton = document.getElementById("dropdown-toggle");
+const reset = document.getElementById("reset");
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+let showDay
 
+function toggle(e) { 
+  const clList = e.classList;
+  if (!clList.contains('show')) clList.add('show');
+  else clList.remove('show');
+};
 const from = urlParams.get("from");
 
 // console.log("from:", from);
@@ -34,7 +46,10 @@ async function getTemperature () {
   temperatureMogilev.innerText = "";
   const req = await fetch(teperatureUrl);
   const res = await req.json();
-  if (res[0].blOut) temperatureKadino.innerText = res[0].blOut + "°С";
+  if (res[0].blOut) {
+    temperatureKadino.innerText = res[0].blOut + "°С";
+    temperatureKadino.classList.remove('hidden');
+  } else temperatureKadino.classList.add('hidden')
   
   setTimeout(() => getTemperature(), 800000);
 };
@@ -67,15 +82,35 @@ const timeUpdate = () => {
   hours = date.getHours();
   mins = date.getMinutes();
   
-  //  hours = 12; mins = 22;
-
   timeNowHours.innerText = addZero(hours);
   timeNowMins.innerText = addZero(mins);
 
   setTimeout(() => timeUpdate(), 5000);
 };
 
+const cday = new Date().getDay();
+
+dropdownButton.addEventListener('click', () => toggle(dropdownMenu));
+reset.addEventListener('click', () => {
+  setShedules();
+  dropdownItems.forEach((item) => {item.classList.remove('active')})
+  dropdownButton.innerText = 'Другой день';
+});
+dropdownItems.forEach(
+  (item, indx) => {
+    if(indx === cday) item.classList.add('desabled')
+    item.addEventListener('click', (e) => {
+      setShedules(indx); 
+      showDay = indx;
+      toggle(dropdownMenu);
+      dropdownButton.innerText = e.target.innerText;
+      dropdownItems.forEach((item) => {item.classList.remove('active')})
+      e.target.classList.add('active');
+    })
+    }
+  );
+
 timeUpdate();
-setShedules();
+setShedules(showDay);
 getTemperature();
 getWeather();

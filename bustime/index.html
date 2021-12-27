@@ -14,6 +14,7 @@
   <link rel="icon" type="image/x-icon" href="https://bustime.tk/favicon.ico" />
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   <link rel="stylesheet" href="owfont-regular.css">
   <title>BusTime</title>
 </head>
@@ -31,7 +32,24 @@
     <img src="favicon.svg" width="50">
     <div class="header-block">
       <div class="header-buttons">
-    </div>
+        <div class="dropdown">
+          <button id="dropdown-toggle" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">Другой день</button>
+          <i id="reset" role="button" class="ri-refresh-line"></i>
+          <div class="dropdown-menu" aria-labelledby="my-dropdown">
+            <a class="dropdown-item">Завтра</a>
+            <a class="dropdown-item">Понедельник</a>
+            <a class="dropdown-item">Вторник</a>
+            <a class="dropdown-item">Среда</a>
+            <a class="dropdown-item">Четверг</a>
+            <a class="dropdown-item">Пятница</a>
+            <a class="dropdown-item">Суббота</a>
+            <a class="dropdown-item active">Воскресенье</a>
+          </div>
+        </div>
+        <div class="dropdown-menu">
+        </div>
+      </div>
     </div> 
   </header>
   <main>
@@ -95,10 +113,12 @@
     <span>Температура в Кадино</span>
     <a href="https://kadino.netlify.com" target="blank">kadino.netlify.com</a>
     <br>
-    <span>Предложения </span>
-    <a href="https://t.me/rmitry" target="blank"><svg _ngcontent-suk-c153="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" alt="telegram"
-    width="25px" height="25px" fill="#006686"><title>contact telegram</title>
-    <path _ngcontent-suk-c153="" d="M 19.976562 3.1210938 
+    <span>Предложения</span>
+    <a href="mailto:kadinoinfo@gmail.com" target="blank">
+      <svg _ngcontent-suk-c153="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" alt="telegram" width="25px"
+        height="25px" fill="#006686">
+        <title>contact email</title>
+        <path _ngcontent-suk-c153="" d="M 19.976562 3.1210938 
 		L 19.611328 3.2695312 
 		C 19.611328 3.2695312 6.6375504 8.5740484 2.6132812 10.267578 
 		L 2.0019531 10.525391 
@@ -120,11 +140,14 @@
 		L 17.082031 7.7988281 
 		C 17.082031 7.7988281 10.706702 11.473998 8.0019531 13.023438 
 		L 4.5371094 11.638672 
-		C 9.0770415 9.7455758 18.697943 5.8058761 19.646484 5.4179688 z"></path></svg>
+		C 9.0770415 9.7455758 18.697943 5.8058761 19.646484 5.4179688 z">
+    </path>
+    </svg>
     </a>
-    <span>mitry © 2021</span>
+    <span> © 2021</span>
   </footer>
 </body>
+<!-- <script type="module" src="index.js"></script> -->
 <script type="module" src="index.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </html>

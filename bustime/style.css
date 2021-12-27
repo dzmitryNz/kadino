@@ -18,11 +18,29 @@ main, header, .weather, footer {
   max-width: 95vw;
 }
 
+header,
+header .header-block,
+header .header-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+i {
+  margin: 10px;
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
 .header-time {
   font-size: 1.4rem;
   border-radius: 5px;
   padding: 0.5rem;
   margin: 0.5rem;
+  white-space: nowrap;
 }
 
 .accordion, .accordion-body, .accordion-button, .accordion-button:not(.collapsed){
@@ -63,6 +81,11 @@ main, header, .weather, footer {
   border-radius: 10px;
   background-color: indigo;
   text-align: center;
+}
+
+.shedule.hidden,
+.bs-weather.hidden{
+  display: none;
 }
 
 .weather-icon {
@@ -156,4 +179,10 @@ main, header, .weather, footer {
       background-color: rgb(61, 35, 39);
       color: darkslategray;
     }
+}
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+  }
 }

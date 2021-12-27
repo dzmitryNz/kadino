@@ -8,12 +8,24 @@ const sheduleKadino = document.getElementById("sheduleKadino");
 const sheduleKirova = document.getElementById("sheduleKirova");
 const sheduleRomanovichi = document.getElementById("sheduleRomanovichi");
 const sheduleVokzal = document.getElementById("sheduleVokzal");
+let timer
+let day
+let hours
+let showingDay
 
-export default function setShedules() {
+export default function setShedules(showDay) {
+  showingDay = showDay
   const date = new Date();
-  const day = date.getDay();
-  const hours = date.getHours();
+  const cday = date.getDay();
+  day = showDay !== undefined ? showDay : cday;
+  if (day === 0) day = cday + 1;
+  hours = date.getHours();
   const mins = date.getMinutes();
+  if (showDay !== undefined) {
+    clearTimeout(timer);
+    hours = 0;
+  } 
+
   let kirova, elNow, elBack, kadino, romanovichi, vokzal;
   if(day < 6) {
     kirova = shedule.kirova;
@@ -36,7 +48,8 @@ export default function setShedules() {
   };
 
   function sheduling(sheduleArr, nextEl, sheduleEl) {
-    sheduleEl.innerText = ""; nextEl.innerText = "";
+    sheduleEl.innerText = ""; nextEl.innerText = ""; 
+    nextEl.classList.remove('hidden');
     elNow = []; elBack = [];
     sheduleArr.forEach(el => {
       const arrEl = el.split(":"); 
@@ -66,7 +79,10 @@ export default function setShedules() {
       newEl.innerText = el;
       sheduleEl.appendChild(newEl);
     });
+    console.log(nextEl.childNodes.length)
     if(elBack && elNow.length < 1) nextEl.innerText = elBack.join(", ");
+    if(showingDay === undefined && nextEl.childNodes.length < 1) nextEl.classList.add('hidden');
+    // if(showingDay === undefined && nextEl.childNodes.length < 1) nextEl.innerText = 'Завтра';
   }
   
   sheduling(kirova, timeNextKirova, sheduleKirova);
@@ -74,5 +90,5 @@ export default function setShedules() {
   sheduling(romanovichi, timeNextRomanovichi, sheduleRomanovichi);
   sheduling(vokzal, timeNextVokzal, sheduleVokzal);
   
-  setTimeout(() => setShedules(), 30000);
+  timer = setTimeout(() => setShedules(showingDay), 10000);
 };
